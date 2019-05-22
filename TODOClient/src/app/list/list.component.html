@@ -1,0 +1,19 @@
+<!-- the following divison takes the mock-Todo class object and prints on the page-->
+<div>
+    <h2>Todo List</h2>
+    <ul class="TodoData">
+      <li *ngFor="let Todo of todoData"  [class.selected]="hero === selectedHero"
+      (click)="onSelect(hero)">>
+        <a routerLink="/detail/{{Todo.id}}">
+          <span class="badge">{{Todo.id}}</span> {{Todo.subject}}
+        </a>
+      </li>
+    </ul>
+</div>
+
+
+
+
+
+<!--shows the selected todo from the given list-->
+<app-todo-detail [Todo]="selectedTodo"></app-todo-detail>

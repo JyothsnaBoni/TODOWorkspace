@@ -1,0 +1,11 @@
+<div *ngIf="Todo">
+
+  <h2>{{Todo.subject | uppercase}} Details</h2>
+  <div><span>subject: </span>{{Todo.subject}}</div>
+  <div>
+    <label>status:
+      <input [(ngModel)]="Todo.status" placeholder="name"/>
+    </label>
+  </div>
+
+</div>

@@ -1,0 +1,17 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+  <h1>
+    {{ title }}!
+  </h1>
+
+  <nav>
+      <a routerLink="/dashboard">Dashboard</a><br>
+    <a routerLink="/todoData">click to view todo data</a>
+  </nav>
+
+  <app-create></app-create>
+  <app-list></app-list>
+
+  <app-messages></app-messages>
+
+  <router-outlet></router-outlet>

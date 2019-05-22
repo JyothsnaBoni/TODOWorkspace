@@ -1,0 +1,4 @@
+create a new project
+ng new <project name> --options
+
+app.module.ts should contain all the new imports 

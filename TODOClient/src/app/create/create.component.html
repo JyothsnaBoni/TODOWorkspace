@@ -1,0 +1,35 @@
+<h2>{{Todo.subject}} Details</h2>
+<div><span>Id: </span>{{Todo.id}}</div>
+<div><span>Todo: </span>{{Todo.subject}}</div>
+<div><span>Status: </span>{{Todo.status}}</div>
+<div><span>created: </span>{{Todo.created}}</div>
+<div><span>modified: </span>{{Todo.modified}}</div>
+<div><span>category:</span>{{Todo.category}}</div>
+
+
+
+
+<div>
+
+    
+<label>
+  Subject:
+  <input [(ngModel)] = "Todo.subject" placeholder = "subject" /> 
+   <!-- [(ngModel)] is an angular two way data binding syntax; 
+    it binds the hero name property to the html text box so that the data can flow in both directions 
+    from the Todo.subject property to the textbox and from the text box back to the Todo.subject  -->
+</label>
+
+<label>
+  Status:
+  <input [(ngModel)] = "Todo.status" placeholder = "status" /> 
+</label>
+
+<label>
+  Category:
+  <input [(ngModel)] = "Todo.category" placeholder = "category" /> 
+</label>
+
+
+</div>
+
