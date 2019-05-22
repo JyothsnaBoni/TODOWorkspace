@@ -1,11 +1,11 @@
 /* Load database & database configuration */
-const database = require('./database.js');
+const database = require('../../database.js');
 
 /* Load bluebird Promise */
 const Promise = require('bluebird');
 
 /* Load DAO Error entity */
-const DaoError = require('./daoError');
+const DaoError = require('../dao/daoError');
 
 /**
  * DAOs Common functions

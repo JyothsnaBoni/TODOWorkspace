@@ -3,7 +3,7 @@ const express = require('express');
 const router = express.Router();
 
 /* Load controller */
-const CategoryController = require('./app/control/CategoryController');
+const CategoryController = require('../control/CategoryController');
 const categoryController = new CategoryController();
 
 /**

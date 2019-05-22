@@ -20,5 +20,9 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 
 /* Router configuration */
-const REST_API_ROOT = '/route';
+const REST_API_ROOT = '/';
 app.use(REST_API_ROOT, require('./app/route/router'));
+
+app.get('/', function(req, res, next) {
+    res.send("Hello world");
+});

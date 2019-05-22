@@ -1,8 +1,8 @@
 /* Load Todo entity */
-const Todo = require('./app/model/Todo');
+const Todo = require('../model/Todo');
 
 /* Load DAO Common functions */
-const daoCommon = require('./app/dao/daoCommon');
+const daoCommon = require('../dao/daoCommon');
 
 /**
  * Todo Data Access Object

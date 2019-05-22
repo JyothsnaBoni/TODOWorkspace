@@ -3,7 +3,7 @@ const express = require('express');
 const router = express.Router();
 
 /* Load controller */
-const TodoController = require('./app/control/TodoController');
+const TodoController = require('../control/TodoController');
 const todoController = new TodoController();
 
 /**

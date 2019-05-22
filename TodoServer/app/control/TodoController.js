@@ -1,11 +1,11 @@
 /* Load Todo Data Access Object */
-const TodoDao = require('./app/dao/TodoDao');
+const TodoDao = require('../dao/TodoDao');
 
 /* Load Control Common function */
-const common = require('./app/control/common');
+const common = require('../control/common');
 
 /* Load Todo entity */
-const Todo = require('./app/model/Todo');
+const Todo = require('../model/Todo');
 
 /**
  * Todo Controller

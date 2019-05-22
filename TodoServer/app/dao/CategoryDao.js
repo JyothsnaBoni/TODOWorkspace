@@ -1,8 +1,8 @@
 /* Load Category entity */
-const Category = require('./app/model/Category');
+const Category = require('../model/Category');
 
 /* Load DAO Common functions */
-const daoCommon = require('./app/dao/daoCommon');
+const daoCommon = require('../dao/daoCommon');
 
 /**
  * Category Data Access Object

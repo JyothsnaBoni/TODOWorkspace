@@ -1,11 +1,11 @@
 /* Load Category Data Access Object */
-const CategoryDao = require('./app/dao/CategoryDao');
+const CategoryDao = require('../dao/CategoryDao');
 
 /* Load Controller Common function */
-const common = require('./app/control/common');
+const common = require('../control/common');
 
 /* Load Driver entity */
-const Category = require('./app/model/Category');
+const Category = require('../model/Category');
 
 /**
  * Category Controller
