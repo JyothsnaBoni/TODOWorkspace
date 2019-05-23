@@ -1,0 +1,8 @@
+<h2>Todo List</h2>
+<ul>
+  <li *ngFor="let Todo of Todos">
+    <span>{{Todo.subject}}</span> 
+    {{Todo.status}} <span>{{Todo.crceated}}</span><span>{{Todo.modified}}</span><span>{{Todo.category}}</span>
+    <app-update-todo></app-update-todo><app-delete-todo></app-delete-todo>
+  </li>
+</ul>

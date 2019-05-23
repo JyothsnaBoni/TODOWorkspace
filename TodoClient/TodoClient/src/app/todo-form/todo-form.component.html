@@ -1,0 +1,49 @@
+<form class="w3-container w3-white w3-text-grey w3-card-4" (ngSubmit)="onSubmit(f)" #f="ngForm">
+  <br>
+  <p class="w3-text-grey w3-white">
+      ADD TODO
+  </p>
+  <br>
+<p>
+    <label>
+        SUBJECT:  
+        <input type="text" [(ngModel)]="todo.subject" name="subject">
+      </label>
+</p>
+
+  <p>
+    <label >STATUS</label>
+    <select [(ngModel)]="todo.status"  name="status">
+    <option value="open">OPEN</option>
+    <option value="done">DONE</option>
+    </select>
+  </p>
+
+<p>
+  <label>
+      CATEGORY:
+      <input type="text" name="category" [(ngModel)] = "todo.category">
+    </label>
+  </p>
+
+  <p>
+      <button type="button">ADD TODO</button>
+  </p>
+</form>
+
+
+  <!--
+  <p>
+      <label>
+          CREATED:
+          <input type="text"  [(ngModel)]="Todo.created"  [formControl]="created" readonly [value]="currentDate" >
+      </label>
+  </p>
+  <p>
+      <label>
+          MODIFIED:
+          <input type="text" [(ngModel)]="Todo.modified"  [formControl]="modified" readonly [value]="modifedDate">
+      </label>
+  </p>
+
+  -->
