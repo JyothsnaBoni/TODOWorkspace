@@ -60,8 +60,8 @@ class TodoController {
         let todo = new Todo();
         todo.subject = req.body.subject;
         todo.status = req.body.status;
-        todo.created = req.body.created;
-        todo.modified = req.body.modified;
+        
+        todo.modified = new Date();
 
         return this.todoDao.update(todo)
             .then(this.common.editSuccess(res))
@@ -80,8 +80,8 @@ class TodoController {
         }
 
         todo.status= req.bpdy.status;
-        todo.created = req.body.created;
-        todo.modified = req.body.modified;
+        todo.created = new Date;
+        todo.modified = '-';
 
         if (req.body.subject) {
             return this.todoDao.createWithId(todo)

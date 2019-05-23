@@ -23,6 +23,13 @@ app.use(bodyParser.json());
 const REST_API_ROOT = '/';
 app.use(REST_API_ROOT, require('./app/route/router'));
 
-app.get('/', function(req, res, next) {
+app.get('/hello', function(req, res, next) {
     res.send("Hello world");
 });
+
+app.get('/Todo/findAll');
+
+
+
+
+module.exports =app;
