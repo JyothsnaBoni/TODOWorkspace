@@ -1,8 +1,41 @@
+
+<!--
 <h2>Todo List</h2>
 <ul>
   <li *ngFor="let Todo of Todos">
     <span>{{Todo.subject}}</span> 
-    {{Todo.status}} <span>{{Todo.crceated}}</span><span>{{Todo.modified}}</span><span>{{Todo.category}}</span>
+    {{Todo.status}} <span>{{Todo.created}}</span><span>{{Todo.modified}}</span><span>{{Todo.category}}</span>
     <app-update-todo></app-update-todo><app-delete-todo></app-delete-todo>
   </li>
 </ul>
+-->
+
+
+<h3>Todo List</h3>
+<div>
+  <label>subject:
+    <input #todoSubject />
+  </label>
+  <!-- (click) passes input value to add() and then clears the input -->
+  <button (click)="add(todoSubject.value); todoSubject.value=''">
+    add
+  </button>
+  <button (click)="search(todoSubject.value)">
+    search
+  </button>
+</div>
+
+  <div class="Todos">
+      <ul class="w3-">
+          <li *ngFor="let todo of Todos">
+            <a (click)="edit(todo)">
+              <span class="badge">{{ todo.subject || -1 }}</span>
+              <span *ngIf="todo!==editTodo">{{todo.subject}}</span>
+              <input *ngIf="todo===editTodo" [(ngModel)]="todo.subject"
+                (blur)="update()" (keyup.enter)="update()">
+            </a>
+            <button class="delete" title="delete todo"
+            (click)="delete(todo)">x</button>
+          </li>
+        </ul>
+  </div>

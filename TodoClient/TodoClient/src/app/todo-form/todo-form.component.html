@@ -1,3 +1,4 @@
+<!--
 <form class="w3-container w3-white w3-text-grey w3-card-4" (ngSubmit)="onSubmit(f)" #f="ngForm">
   <br>
   <p class="w3-text-grey w3-white">
@@ -30,7 +31,7 @@
       <button type="button">ADD TODO</button>
   </p>
 </form>
-
+-->
 
   <!--
   <p>
@@ -47,3 +48,49 @@
   </p>
 
   -->
+
+  <div class="w3-container">
+    <div [hidden]="submitted">
+      <h1>Todo Form</h1>
+      <form (ngSubmit)="onSubmit()" #todoForm="ngForm">
+        <div class="form-group">
+          <label for="subject">*Subject</label>
+          <input type="text" class="form-control" id="subject"
+                 required
+                 [(ngModel)]="model.subject" name="subject"
+                 #name="ngModel">
+          <div [hidden]="name.valid || name.pristine"
+               class="alert alert-danger">
+            subject is required
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <label for="status">Status</label>
+          <select type="text" class="form-control" id="status"
+          [(ngModel)]="model.status" name="status">
+              <option value="open">OPEN</option>
+              <option value="done">DONE</option>
+              </select>
+        </div>
+
+       
+  
+        <div class="form-group">
+          <label for="category">Category(optional):</label>
+          <input value="not applicable"  type="text" class="form-control" id="category"
+                 [(ngModel)]="model.category" name="status"
+                 #name="ngModel">
+       
+        </div>
+        </form>
+        <div class="w3-container">
+           <button type="submit" class="btn btn-success" [disabled]="!todoForm.form.valid">Submit</button><br><br>
+           <label for="category">*Click below to enter new subject and new category</label><br>
+           <button type="button" class="button" (click)="newTodo(); todoForm.reset()">New Todo</button><br>
+           <label for="category">*Click below to enter same subject to new category</label>
+           <button type="button" class="button" (click)="newTodo()">New Todo</button></div>   <hr>  
+         </div>
+
+</div>
+

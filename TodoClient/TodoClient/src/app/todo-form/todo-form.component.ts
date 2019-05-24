@@ -18,14 +18,19 @@ const modifiedDate: string= '-';
 })
 export class TodoFormComponent implements OnInit {
 
-  // TodoForm = this.form.group({
-  //   subject: [''],
-  //   status: [''],
-  //   created: [''],
-  //   modified: [''],
-  //   category: ['']
-  //   });
-  todo: any = {};
+  model = new Todo();
+
+  submitted = false;
+  onSubmit() { this.submitted = true; }
+
+  get diagnostic() { return JSON.stringify(this.model); }
+
+  //todo: any = {};
+
+  newTodo() {
+    this.model = new Todo();
+  }
+  
 
   // @ViewChild('f') todoForm: string;
     currentDate: string
@@ -40,16 +45,6 @@ export class TodoFormComponent implements OnInit {
   ngOnInit() {
       
   }
-
-  onSubmit() {
-
-      console.log(this.todo);
-    // this.todoService.addTodo(this.TodoForm.value);
-  }
-
-
-
-
 
 
 
