@@ -1,7 +1,7 @@
-export class Todo{
+export class Todo {
     
-    subject: string;
-    status: string;
-    category: string;
+        public subject: string;
+        public status: string;
+        public category: string;
   
 }

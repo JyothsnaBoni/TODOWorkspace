@@ -50,47 +50,70 @@
   -->
 
   <div class="w3-container">
+
     <div [hidden]="submitted">
-      <h1>Todo Form</h1>
-      <form (ngSubmit)="onSubmit()" #todoForm="ngForm">
+            <h1>Todo Form</h1>
+      
+      
+      
+      <form (ngSubmit)="onSubmit()" #form="ngForm">
+
         <div class="form-group">
+           
           <label for="subject">*Subject</label>
           <input type="text" class="form-control" id="subject"
                  required
                  [(ngModel)]="model.subject" name="subject"
                  #name="ngModel">
+
           <div [hidden]="name.valid || name.pristine"
                class="alert alert-danger">
-            subject is required
+                 subject is required
           </div>
+        
         </div>
         
         <div class="form-group">
+        <!--
           <label for="status">Status</label>
           <select type="text" class="form-control" id="status"
-          [(ngModel)]="model.status" name="status">
+          [(ngModel)]="model.status" name="status" #name="ngModel">
               <option value="open">OPEN</option>
               <option value="done">DONE</option>
               </select>
+            -->
+          
+            <select ngModel name="status" #name="ngModel" [(ngModel)]="model.status">
+                <option *ngFor="let myOption of myOptions" [value]="myOption.id"> 
+                    {{ myOption.name }}
+                </option>
+            </select>
         </div>
 
        
-  
+ 
         <div class="form-group">
+          
           <label for="category">Category(optional):</label>
           <input value="not applicable"  type="text" class="form-control" id="category"
-                 [(ngModel)]="model.category" name="status"
+                 [(ngModel)]="model.category" name="category"
                  #name="ngModel">
        
         </div>
-        </form>
+      
+        <div class="form-group">
+            <button type="submit" class="btn btn-success" [disabled]="!todoForm.form.valid">Submit</button><br><br>
+        </div>
+
+      </form>
         <div class="w3-container">
-           <button type="submit" class="btn btn-success" [disabled]="!todoForm.form.valid">Submit</button><br><br>
+          <!--
            <label for="category">*Click below to enter new subject and new category</label><br>
            <button type="button" class="button" (click)="newTodo(); todoForm.reset()">New Todo</button><br>
            <label for="category">*Click below to enter same subject to new category</label>
-           <button type="button" class="button" (click)="newTodo()">New Todo</button></div>   <hr>  
-         </div>
-
+           <button type="button" class="button" (click)="newTodo()">New Todo</button> 
+          --> 
+       </div>
+     </div>
 </div>
 

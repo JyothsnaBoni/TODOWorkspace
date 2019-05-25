@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { TodoService } from '../services/todoService';
 import { Todo } from '../model/Todo';
+import { HttpClient, HttpParams } from '@angular/common/http';
+
+
 
 @Component({
   selector: 'app-todo-list',
@@ -8,21 +11,30 @@ import { Todo } from '../model/Todo';
   styleUrls: ['./todo-list.component.css']
 })
 export class TodoListComponent implements OnInit {
+  
+  todo: Todo; todos : Todo[]; editTodo: Todo;
 
-  constructor(private todoService : TodoService) { }
+  constructor(private todoService : TodoService,
+    private http: HttpClient,
+    ) { }
 
-  todos: Todo[];
-  editTodo: Todo;
 
   ngOnInit() {
+    
   }
 
+
   getTodoList(){
+
     return this.todoService.todoList()
-      .subscribe((data) => {
-        console.log(data);
-      });
+      .subscribe((response) => {
+        this.todos = response;
+      },
+      error => console.error(error)
+      );
   }
+
+ 
 
   delete(todo: Todo): void {
     this.todos = this.todos.filter(t => t !== todo);

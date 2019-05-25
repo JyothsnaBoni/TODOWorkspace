@@ -7,4 +7,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title : String = 'Todo App';
+
+  showTodos = true;
+  
+
+  toggleHeroes() { this.showTodos = !this.showTodos; }
+ 
 }
