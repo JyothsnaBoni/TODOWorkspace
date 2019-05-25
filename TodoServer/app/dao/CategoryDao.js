@@ -19,7 +19,7 @@ class CategoryDao {
      * @return entity
      */
     findById(name) {
-        let sqlRequest = "SELECT name, created, modified, todo FROM Category WHERE name=$name";
+        let sqlRequest = "SELECT name, created, modified, todo FROM category WHERE name=$name";
         let sqlParams = {$name: name};
         return this.common.findOne(sqlRequest, sqlParams).then(row =>
             new Category(row.name, row.created, row.modified, row.todo));
@@ -30,15 +30,20 @@ class CategoryDao {
      * @return all entities
      */
     findAll() {
-        let sqlRequest = "SELECT * FROM Category";
+        let sqlRequest = "SELECT * FROM category";
+        console.log("camehere");
         return this.common.findAll(sqlRequest).then(rows => {
+         
             let categories = [];
             for (const row of rows) {
-                categories.push(new Category(row.name, row.created, row.modified, row.todo));
+             categories.push(new Category(row.name, row.created, row.modified, row.todo));
+           
             }
+        
             return categories;
         });
     };
+
 
     /**
      * Counts all the records present in the database
@@ -110,7 +115,7 @@ class CategoryDao {
      * returns database deletion status
      */
     deleteById(name) {
-        let sqlRequest = "DELETE FROM Category WHERE name=$name";
+        let sqlRequest = "DELETE FROM category WHERE name=$name";
         let sqlParams = {$name: name};
         return this.common.run(sqlRequest, sqlParams);
     };

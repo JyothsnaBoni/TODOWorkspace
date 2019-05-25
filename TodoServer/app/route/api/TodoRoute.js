@@ -1,9 +1,11 @@
 /* Load Modules */
 const express = require('express');
 const router = express.Router();
+const cors = require('cors');
+router.use(cors());
 
 /* Load controller */
-const TodoController = require('../control/TodoController');
+const TodoController = require('../../control/TodoController');
 const todoController = new TodoController();
 
 /**
@@ -23,6 +25,8 @@ router.get('/:subject', function (req, res) {
 
 router.get('/', function (req, res) {
     todoController.findAll(res);
+    //res.json({msg:'this is cors-enabled for all origins '});
+    
 });
 
 router.put('/:subject', function (req, res) {
@@ -30,7 +34,10 @@ router.put('/:subject', function (req, res) {
 });
 
 router.post('/create', function (req, res) {
+    console.log("create called");
+    
     todoController.create(req, res);
+   
 });
 
 router.delete('/:subject', function (req, res) {

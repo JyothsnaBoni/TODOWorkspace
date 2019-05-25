@@ -78,16 +78,22 @@ class TodoDao {
      * returns database insertion status
      */
     create(Todo) {
-        let sqlRequest = "INSERT into todo (subject, status, created, modified, category) " +
-            "VALUES ($subject, $status, $created, $modified)";
+        let sqlRequest = `INSERT INTO todo(subject, status, created, modified, category)
+        VALUES ($subject, $status, $created , $modified , $category)`;
+        
+      //  "INSERT into todo (subject, status, created, modified, category) " +
+        //    "VALUES ($subject, $status, $created, $modified,$category)";
+       console.log("entered  create");
+           
         let sqlParams = {
             $subject: Todo.subject,
-            $status: Todo.status,
-            $created: Todo.created,
-            $modified: Todo.modified,
-            $category: Todo.category
+            $status : Todo.status,
+            $created : Todo.created,
+            $modified : Todo.modified,
+            $category : Todo.category
             
         };
+        
         return this.common.run(sqlRequest, sqlParams);
     };
 
@@ -100,7 +106,7 @@ class TodoDao {
         let sqlRequest = "INSERT into todo (subject, status, created, modified, category) " +
             "VALUES ($subject, $status, $created, $modified, $category)";
         let sqlParams = {
-            $id: Car.id, $subject: Todo.subject,
+            $subject: Todo.subject,
             $status: Todo.status,
             $created: Todo.created,
             $modified: Todo.modified,

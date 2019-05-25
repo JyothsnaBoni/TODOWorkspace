@@ -61,6 +61,7 @@ class TodoController {
         todo.subject = req.body.subject;
         todo.status = req.body.status;
         
+        
         todo.modified = new Date();
 
         return this.todoDao.update(todo)
@@ -74,23 +75,30 @@ class TodoController {
      * returns database insertion status
      */
     create(req, res) {
+  
+        console.log("final level");
         let todo = new Todo();
+      
         if (req.body.subject) {
             todo.subject = req.body.subject;
+            
         }
-
-        todo.status= req.bpdy.status;
-        todo.created = new Date;
-        todo.modified = '-';
+        //var newDate = new Date();
+        //var datetime = "LastSync: " + newDate.today() + " @ " + newDate.timeNow();
+        todo.subject = req.body.subject;
+        todo.status= req.body.status;
+        todo.created = '';
+        todo.modified = '';
+        todo.category = req.body.category;
 
         if (req.body.subject) {
             return this.todoDao.createWithId(todo)
                 .then(this.common.editSuccess(res))
-                .catch(this.common.serverError(res));
+            .catch(this.common.serverError(res));
         }
         else {
             return this.todoDao.create(todo)
-                .then(this.common.editSuccess(res))
+               .then(this.common.editSuccess(res))
                 .catch(this.common.serverError(res));
         }
 

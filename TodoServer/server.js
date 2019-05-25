@@ -1,6 +1,11 @@
 /* Load modules */
 const express = require("express");
-const app = express();
+var cors = require('cors');
+var app = express();
+
+app.use(cors()) ;
+
+
 const bodyParser = require("body-parser");
 
 /* Database configuration */
@@ -19,17 +24,15 @@ app.listen(port, function () {
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 
+
+app.options('*', cors()); // include before other routes
 /* Router configuration */
 const REST_API_ROOT = '/';
-app.use(REST_API_ROOT, require('./app/route/router'));
-
-app.get('/hello', function(req, res, next) {
-    res.send("Hello world");
-});
-
-app.get('/Todo/findAll');
+app.use(REST_API_ROOT, require('./app/route/router')
+);
 
 
 
 
-module.exports =app;
+
+

@@ -3,7 +3,7 @@
  */
 
 class Category {
-    constructor(name, created, modified) {
+    constructor(name, created, modified,todo) {
         this.name = name;
         this.created = created;
         this.modified = modified;
