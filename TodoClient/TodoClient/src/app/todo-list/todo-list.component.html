@@ -10,7 +10,6 @@
 </ul>
 -->
 
-
 <h3>Todo List</h3>
 <div>
   <label>subject:
@@ -26,35 +25,42 @@
   <button (click)="getTodoList()">list todos</button>
 </div>
 
-  <div class="Todos">
+
+
+  <div class="w3-container">
       <ul class="w3-container">
+
+       
           <li *ngFor="let todo of todos">
+           
             <a (click)="edit(todo)">
-              <span class="badge">{{ todo.subject || -1 }}</span>
+              
               <span *ngIf="todo!==editTodo">{{todo.subject}}</span>
               <input *ngIf="todo===editTodo" [(ngModel)]="todo.subject"
                 (blur)="update()" (keyup.enter)="update()">
             </a>
+       
+          
             <a (click)="edit(todo)">
-                <span class="badge">{{ todo.status || -1 }}</span>
-                <span *ngIf="todo!==editTodo">{{todo.status}}</span>
+               
+                
                 <input *ngIf="todo===editTodo" [(ngModel)]="todo.status"
                   (blur)="update()" (keyup.enter)="update()">
               </a>
               <a>
-                  <span class="badge">{{ todo.created || -1 }}</span>
+                  
                   <span>
                     {{todo.created}}
                   </span>
                 </a>
               <a>
-                  <span class="badge">{{ todo.modified || -1 }}</span>
+                 
                 <span>
                   {{todo.modified}}
                 </span>
               </a>
               <a (click)="edit(todo)">
-                  <span class="badge">{{ todo.category || -1 }}</span>
+                  
                   <span *ngIf="todo!==editTodo">{{todo.category}}</span>
                   <input *ngIf="todo===editTodo" [(ngModel)]="todo.category"
                     (blur)="update()" (keyup.enter)="update()">
@@ -67,6 +73,5 @@
           </a>
           </li>
         </ul>
-  </div>
 
-  
+  </div>
